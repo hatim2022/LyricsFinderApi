@@ -1,6 +1,7 @@
 package com.lyricfinder.controller;
 
 
+import com.lyricfinder.dto.Trackdto;
 import com.lyricfinder.model.Track;
 import com.lyricfinder.service.LyricService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,14 @@ public class TrackController extends BaseController {
        }
        return ResponseEntity.ok(tracks);
    }
+
+    @PostMapping("/tracks")
+    public ResponseEntity<Track> getTrackByName(@RequestBody Trackdto track){
+        Track track1=service.getTrackByName(track.getName());
+        if(track1==null){
+            return new ResponseEntity("no track found",HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(track1);
+    }
 
 }

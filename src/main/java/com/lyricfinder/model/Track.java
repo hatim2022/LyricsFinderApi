@@ -23,13 +23,18 @@ public class Track {
     @Column(nullable = false)
     private float rate;
 
+    @NotNull
+    @Column(nullable = false)
+    private String lyrics;
 
-    public Track(int id, String name, String artist_name, String album_name, float rate) {
+
+    public Track(int id, String name, String artist_name, String album_name, float rate, String lyrics) {
         this.id = id;
         this.name = name;
         this.artist_name = artist_name;
         this.album_name = album_name;
         this.rate = rate;
+        this.lyrics = lyrics;
     }
 
     public Track() {

@@ -52,6 +52,12 @@ public class AppService implements LyricService{
         return tracklist;
     }
 
+    @Override
+    public Track getTrackByName(String name) {
+        Track track=trackRepository.getTrackByName(name);
+        return track;
+    }
+
 
     @Override
     public Track addTrack(Track track) {
