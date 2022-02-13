@@ -54,12 +54,14 @@ public class TrackController extends BaseController {
    }
 
     @PostMapping("/tracks")
-    public ResponseEntity<Track> getTrackByName(@RequestBody Trackdto track){
-        Track track1=service.getTrackByName(track.getName());
+    public ResponseEntity<List<Track>> getTracksByTitle(@RequestBody Trackdto track){
+        List<Track> track1=service.getTrackByName(track.getName());
         if(track1==null){
             return new ResponseEntity("no track found",HttpStatus.NOT_FOUND);
         }
         return ResponseEntity.ok(track1);
     }
+
+
 
 }

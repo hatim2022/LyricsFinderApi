@@ -8,6 +8,7 @@ import com.lyricfinder.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Base64;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -53,9 +54,10 @@ public class AppService implements LyricService{
     }
 
     @Override
-    public Track getTrackByName(String name) {
-        Track track=trackRepository.getTrackByName(name);
-        return track;
+    public List<Track> getTrackByName(String name) {
+        List<Track> tracks=trackRepository.getTrackByName(name).
+                        stream().collect(Collectors.toList());
+        return tracks;
     }
 
 

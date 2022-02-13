@@ -10,7 +10,7 @@ public interface LyricService {
     User CreateUser(String email, String password);
     List<Track> getAllTracks();
     List<Track> getBestNtracks(int n);
-    Track getTrackByName(String name);
+    List<Track> getTrackByName(String name);
     Track addTrack(Track track);
     Track getTrackById(Integer id);
 
