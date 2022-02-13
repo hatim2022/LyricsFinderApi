@@ -18,6 +18,6 @@ public interface TrackRepository extends JpaRepository<Track,Integer> {
     Optional<Track> findById(Integer id);
     @Query(value = "select * from track order by rate desc limit ?1",nativeQuery = true)
     Collection<Track> findTopNTracks(Integer n);
-    @Query(value = "select * from track where name=?1",nativeQuery = true)
-    Track getTrackByName(String trackname);
+    @Query(value = "select * from track where name LIKE ?1% ",nativeQuery = true)
+    Collection<Track> getTrackByName(String trackname);
 }
